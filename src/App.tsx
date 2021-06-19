@@ -14,6 +14,7 @@ const Container = Styled.div`
 `;
 
 const App = (): JSX.Element => {
+  console.log('test');
   return (
     <Container>
       <PageHeader />
