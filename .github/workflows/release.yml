@@ -1,0 +1,27 @@
+name: Release
+on:
+  push:
+    branches:
+      - release
+jobs:
+  test:
+    name: Release GitHub Pages
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install packages
+        run: npm ci
+      - name: Build
+        run: npm run build
+      - name: git setting
+        run: |
+          git config --local user.email ${{ secrets.EMAIL }}
+          git config --local user.name ${{ secrets.NAME }}
+      - name: Commit files
+        run: |
+          git add .
+          git commit -m "Build"
+          git pull
+          git push origin master
+      - name: Push subtree
+        run: git subtree push --prefix build/ origin gh-pages
