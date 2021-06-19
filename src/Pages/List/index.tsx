@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
@@ -57,11 +57,11 @@ const AddButton = Styled(Link)`
   }
 `;
 
-export const List = () => {
+export const List = (): JSX.Element => {
   const [toDoList, setToDoList] = useState<Array<string>>([]);
 
   const onDelete = (index: number) => {
-    let list = [...toDoList];
+    const list = [...toDoList];
     list.splice(index, 1);
     setToDoList(list);
     localStorage.setItem('ToDoList', JSON.stringify(list));
@@ -69,7 +69,7 @@ export const List = () => {
 
   useEffect(() => {
     const list = localStorage.getItem('ToDoList');
-    if (list) {
+    if (list != null) {
       setToDoList(JSON.parse(list));
     }
   }, []);

@@ -1,4 +1,3 @@
-import React from 'react';
 import Styled from 'styled-components';
 import { useParams, useHistory } from 'react-router-dom';
 
@@ -22,10 +21,10 @@ const ToDo = Styled.div`
   padding: 10px;
 `;
 
-export const Detail = () => {
+export const Detail = (): JSX.Element => {
   const { replace } = useHistory();
   const { id }: { id: string } = useParams();
-  const toDoList = JSON.parse(localStorage.getItem('ToDoList') || '[]');
+  const toDoList = JSON.parse(localStorage.getItem('ToDoList') ?? '[]');
   const toDo = toDoList[id];
 
   if (toDo === undefined) {
@@ -33,7 +32,7 @@ export const Detail = () => {
   }
 
   const onDelete = () => {
-    let list = [...toDoList];
+    const list = [...toDoList];
     list.splice(Number.parseInt(id), 1);
     localStorage.setItem('ToDoList', JSON.stringify(list));
     replace('/');

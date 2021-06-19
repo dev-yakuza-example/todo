@@ -1,4 +1,3 @@
-import React from 'react';
 import Styled from 'styled-components';
 import { useLocation, Link } from 'react-router-dom';
 
@@ -28,7 +27,7 @@ const GoBack = Styled(Link)`
   left: 20px;
 `;
 
-export const PageHeader = () => {
+export const PageHeader = (): JSX.Element => {
   const { pathname } = useLocation();
   let title = '에러';
 

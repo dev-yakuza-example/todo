@@ -1,4 +1,3 @@
-import React from 'react';
 import Styled from 'styled-components';
 import { Switch, Route } from 'react-router-dom';
 
@@ -14,7 +13,7 @@ const Container = Styled.div`
   flex-direction: column;
 `;
 
-function App() {
+const App = (): JSX.Element => {
   return (
     <Container>
       <PageHeader />
@@ -34,6 +33,6 @@ function App() {
       </Switch>
     </Container>
   );
-}
+};
 
 export default App;

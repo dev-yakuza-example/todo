@@ -1,4 +1,3 @@
-import React from 'react';
 import Styled from 'styled-components';
 
 interface ContainerProps {
@@ -36,7 +35,7 @@ export const Button = ({
   backgroundColor = '#304FFE',
   hoverColor = '#1E40FF',
   onClick,
-}: Props) => {
+}: Props): JSX.Element => {
   return (
     <Container backgroundColor={backgroundColor} hoverColor={hoverColor} onClick={onClick}>
       <Label>{label}</Label>

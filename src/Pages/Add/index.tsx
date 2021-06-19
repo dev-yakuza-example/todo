@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 
@@ -15,14 +15,14 @@ const Input = Styled.input`
   outline: none;
 `;
 
-export const Add = () => {
+export const Add = (): JSX.Element => {
   const [toDo, setToDo] = useState('');
   const { replace } = useHistory();
 
   const addToDo = (): void => {
     if (toDo === '') return;
 
-    const list = JSON.parse(localStorage.getItem('ToDoList') || '[]');
+    const list = JSON.parse(localStorage.getItem('ToDoList') ?? '[]');
     localStorage.setItem('ToDoList', JSON.stringify([...list, toDo]));
     replace('/');
   };
