@@ -23,4 +23,6 @@ jobs:
           git commit -m "Build"
           git push
       - name: Push subtree
-        run: git subtree push --prefix build/ origin gh-pages
+        run: |
+          git subtree pull --prefix build/ origin gh-pages
+          git subtree push --prefix build/ origin gh-pages
